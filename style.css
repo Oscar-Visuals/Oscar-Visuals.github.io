@@ -1,0 +1,527 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+    --primary-color: #FFC107; /* Yellow */
+    --secondary-color: #8E24AA; /* Purple */
+    --text-color: #FFFFFF;
+    --text-muted: #BDBDBD;
+    --bg-dark: #000000;
+    --bg-card: #121212;
+    --accent-orange: #FF7043;
+    --font-family: 'Inter', sans-serif;
+    --script-font: 'Arial', cursive; /* Placeholder for stylized text */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+.text-center { text-align: center; }
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #FFA000;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-color);
+    color: #000;
+}
+
+/* --- SECTION TYPOGRAPHY --- */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.highlight {
+    color: var(--primary-color);
+    /* Add gradient effect as shown in image using background-clip */
+    background: linear-gradient(135deg, #FF7043, #FFC107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-title-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* --- HEADER / NAV --- */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar nav a {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.navbar nav a:hover, .navbar nav a.active {
+    color: var(--text-color);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.hero .sub-headline {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.hero-footer .creative-text {
+    font-size: 14px;
+}
+
+.hero-footer .script-font {
+    color: var(--accent-orange);
+    /* A real script font like 'Pacifico' or 'Dancing Script' would be linked here */
+}
+
+/* --- PORTFOLIO SECTION --- */
+.projects {
+    padding: 100px 0;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.filters button {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.filters button:hover, .filters button.active {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-orange));
+    color: #fff;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.project-card .play-icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #000;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.project-card .tag {
+    position: absolute;
+    top: 20px; left: 20px;
+    color: #000;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+/* Custom colors for tags derived from the image */
+.tag-real-estate { background-color: #448AFF; } /* Blue */
+/* Add others like .tag-cinematic {background-color: #D32F2F} red */
+
+.project-card h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.project-card p {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.projects .view-all {
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- STATS BAR --- */
+.stats-bar {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-orange));
+    padding: 40px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.stat-item {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stat-item i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* --- SERVICES SECTION --- */
+.services {
+    padding: 100px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    border-color: var(--accent-orange);
+    box-shadow: 0 4px 15px rgba(255, 112, 67, 0.2);
+}
+
+.service-card i {
+    color: var(--primary-color);
+    background: linear-gradient(135deg, #FF7043, #FFC107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* --- PROCESS SECTION --- */
+.process {
+    padding: 100px 0;
+}
+
+.process-timeline {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.process-timeline::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 15%; right: 15%;
+    height: 2px;
+    background: linear-gradient(to right, #448AFF, #8E24AA, #FFC107);
+    z-index: 1;
+}
+
+.timeline-item {
+    font-size: 14px;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-item span {
+    display: block;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background-color: var(--bg-dark);
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 auto 10px;
+    border: 2px solid #fff;
+}
+
+/* Set specific color accents for each step based on the image line colors */
+.step-1 span { border-color: #448AFF; }
+.step-2 span { border-color: #8E24AA; }
+.step-3 span { border-color: #FF1744; }
+.step-4 span { border-color: #FFC107; }
+.step-5 span { border-color: #00E676; }
+
+.process-desc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    font-size: 13px;
+}
+
+.process-desc {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.process-desc i { color: var(--text-muted); margin-bottom: 10px; font-size: 18px;}
+.process-desc h4 { margin-bottom: 8px; }
+.process-desc p { color: var(--text-muted); font-size: 12px; }
+
+/* --- FOOTER / ABOUT / CONTACT --- */
+footer {
+    background-color: #050505; /* Near black */
+    padding: 80px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-about {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.footer-about p {
+    color: var(--text-muted);
+    font-size: 14px;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.signature {
+    max-width: 100px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.footer-contact h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-contact p {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.contact-btn {
+    padding: 12px 30px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-orange));
+    border: none;
+    color: #fff;
+    display: flex; align-items: center; gap: 10px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.contact-links a:hover {
+    color: var(--accent-orange);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.footer-bottom nav {
+    display: flex;
+    gap: 15px;
+}
+
+.scroll-top {
+    background-color: #fff;
+    color: #000;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+}
